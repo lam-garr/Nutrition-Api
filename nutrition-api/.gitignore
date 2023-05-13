@@ -34,3 +34,6 @@ build/
 
 ### tests ###
 /tests
+
+### env ###
+.env
