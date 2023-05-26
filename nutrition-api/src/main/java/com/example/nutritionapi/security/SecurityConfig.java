@@ -20,6 +20,7 @@ public class SecurityConfig {
             .securityMatcher("/**")
             .authorizeHttpRequests(registry -> registry
                 .requestMatchers("/").permitAll()
+                .requestMatchers("/login").permitAll()
                 .anyRequest().authenticated()
             );
 
