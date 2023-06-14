@@ -23,10 +23,10 @@ public class AuthController {
 
     private final AuthenticationManager authenticationManager;
     
-    @GetMapping("/login")
-    public LoginRes login(){
+    @PostMapping("/login")
+    public LoginRes login(@RequestBody LoginReq req){
         var authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken("Username", "password")
+            new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword())
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
