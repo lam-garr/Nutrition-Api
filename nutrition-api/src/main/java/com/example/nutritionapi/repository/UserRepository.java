@@ -9,5 +9,5 @@ import com.example.nutritionapi.models.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
-    
+    void deleteByUsername(String username);
 }
