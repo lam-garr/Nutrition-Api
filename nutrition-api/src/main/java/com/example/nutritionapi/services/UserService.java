@@ -28,7 +28,7 @@ public class UserService {
         return Optional.of(user);
     }
 
-    public void deleteUSer(String usernameToDelete){
+    public void deleteUser(String usernameToDelete){
         userRepository.deleteByUsername(usernameToDelete);
     }
 }

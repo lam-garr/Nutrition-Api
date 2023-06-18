@@ -3,11 +3,13 @@ package com.example.nutritionapi.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.nutritionapi.models.User;
+import com.example.nutritionapi.security.UserPrincipal;
 import com.example.nutritionapi.services.UserService;
 
 @RestController
@@ -22,9 +24,14 @@ public class UserController {
         return "Welcome to nutrition api.";
     }
 
+    @GetMapping("user-id")
+    public String getUserId(@AuthenticationPrincipal UserPrincipal principal) {
+        return principal.getUsername();
+    }
+
     @GetMapping(path="/delete-user")
     public void deleteUser(){
-        userService.deleteUSer("");
+        userService.deleteUser("");
         return;
     }
 }
