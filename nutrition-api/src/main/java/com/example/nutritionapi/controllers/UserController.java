@@ -24,7 +24,7 @@ public class UserController {
         return "Welcome to nutrition api.";
     }
 
-    @GetMapping("user-id")
+    @GetMapping("username")
     public String getUserId(@AuthenticationPrincipal UserPrincipal principal) {
         return principal.getUsername();
     }
