@@ -1,5 +1,7 @@
 package com.example.nutritionapi.models;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -20,4 +22,6 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
+    private String token;
+    private List<NutritionInfo> myData;
 }

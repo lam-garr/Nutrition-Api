@@ -1,5 +1,8 @@
 package com.example.nutritionapi.controllers;
 
+import java.util.List;
+
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.nutritionapi.models.NutritionInfo;
 import com.example.nutritionapi.models.User;
 import com.example.nutritionapi.security.UserPrincipal;
 import com.example.nutritionapi.services.UserService;
@@ -33,5 +37,10 @@ public class UserController {
     public void deleteUser(){
         userService.deleteUser("");
         return;
+    }
+
+    @GetMapping(path="get-entries")
+    public ResponseEntity<List<NutritionInfo>> getUserDiaryEntries(@AuthenticationPrincipal UserPrincipal principal) {
+        return new ResponseEntity<List<NutritionInfo>>(userService.getUserDiaryEntries(principal.getUserId()), HttpStatus.OK);
     }
 }
