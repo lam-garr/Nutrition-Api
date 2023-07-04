@@ -8,9 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.nutritionapi.models.DiaryEntry;
 import com.example.nutritionapi.models.NutritionInfo;
 import com.example.nutritionapi.models.User;
 import com.example.nutritionapi.security.UserPrincipal;
@@ -42,5 +44,10 @@ public class UserController {
     @GetMapping(path="get-entries")
     public ResponseEntity<List<NutritionInfo>> getUserDiaryEntries(@AuthenticationPrincipal UserPrincipal principal) {
         return new ResponseEntity<List<NutritionInfo>>(userService.getUserDiaryEntries(principal.getUserId()), HttpStatus.OK);
+    }
+
+    @GetMapping(path="get-entry")
+    public ResponseEntity<DiaryEntry> getUserDiaryEntry(@AuthenticationPrincipal UserPrincipal principal) {
+        return new ResponseEntity<DiaryEntry>(userService.getUserDiaryEntry(principal.getUserId()), HttpStatus.OK);
     }
 }
