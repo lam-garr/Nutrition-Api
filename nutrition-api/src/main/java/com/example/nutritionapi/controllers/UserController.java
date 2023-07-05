@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -49,5 +50,11 @@ public class UserController {
     @GetMapping(path="get-entry")
     public ResponseEntity<DiaryEntry> getUserDiaryEntry(@AuthenticationPrincipal UserPrincipal principal) {
         return new ResponseEntity<DiaryEntry>(userService.getUserDiaryEntry(principal.getUserId()), HttpStatus.OK);
+    }
+
+    @PostMapping(path="delete-entry")
+    public void deleteSingleEntryFromCollection(@RequestBody String deckIdToDelete, @AuthenticationPrincipal UserPrincipal principal) {
+        userService.deleteSingleEntryFromCollection(deckIdToDelete);
+        return;
     }
 }
