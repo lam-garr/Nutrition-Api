@@ -57,4 +57,9 @@ public class UserController {
         userService.deleteSingleEntryFromCollection(deckIdToDelete);
         return;
     }
+
+    @PostMapping(path="add-to-entry")
+    public void addDataToDiaryEntry(@RequestBody String item, @AuthenticationPrincipal UserPrincipal principal) {
+        userService.addDataToDiaryEntry(item, principal.getUserId());
+    }
 }
