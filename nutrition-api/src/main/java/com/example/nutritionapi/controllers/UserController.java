@@ -62,4 +62,10 @@ public class UserController {
     public void addDataToDiaryEntry(@RequestBody String item, @AuthenticationPrincipal UserPrincipal principal) {
         userService.addDataToDiaryEntry(item, principal.getUserId());
     }
+
+    @PostMapping(path="add-entry")
+    public void addDiaryEntryToCollection(@RequestBody Object data, @AuthenticationPrincipal UserPrincipal principal) {
+        userService.addDiaryEntryToCollection(data, principal.getUserId());
+        return;
+    }
 }
