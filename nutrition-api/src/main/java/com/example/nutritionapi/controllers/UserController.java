@@ -47,25 +47,32 @@ public class UserController {
         return new ResponseEntity<List<NutritionInfo>>(userService.getUserDiaryEntries(principal.getUserId()), HttpStatus.OK);
     }
 
-    @GetMapping(path="get-entry")
+    /* @GetMapping(path="get-entry")
     public ResponseEntity<DiaryEntry> getUserDiaryEntry(@AuthenticationPrincipal UserPrincipal principal) {
         return new ResponseEntity<DiaryEntry>(userService.getUserDiaryEntry(principal.getUserId()), HttpStatus.OK);
-    }
+    } */
 
     @PostMapping(path="delete-entry")
     public void deleteSingleEntryFromCollection(@RequestBody String deckIdToDelete, @AuthenticationPrincipal UserPrincipal principal) {
-        userService.deleteSingleEntryFromCollection(deckIdToDelete);
+        //userService.deleteSingleEntryFromCollection(deckIdToDelete);
         return;
     }
 
     @PostMapping(path="add-to-entry")
     public void addDataToDiaryEntry(@RequestBody String item, @AuthenticationPrincipal UserPrincipal principal) {
-        userService.addDataToDiaryEntry(item, principal.getUserId());
+        //userService.addDataToDiaryEntry(item, principal.getUserId());
+        return;
     }
 
     @PostMapping(path="add-entry")
     public void addDiaryEntryToCollection(@RequestBody Object data, @AuthenticationPrincipal UserPrincipal principal) {
-        userService.addDiaryEntryToCollection(data, principal.getUserId());
+        //userService.addDiaryEntryToCollection(data, principal.getUserId());
+        return;
+    }
+
+    @PostMapping(path="delete-from-entry")
+    public void deleteDataFromDiaryEntry(@RequestBody String id, @RequestBody String deleteId, @AuthenticationPrincipal UserPrincipal principal) {
+        //userService.deleteDataFromDiaryEntry(id, deleteId, principal.getUserId());
         return;
     }
 }
