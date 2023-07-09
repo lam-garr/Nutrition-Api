@@ -75,4 +75,9 @@ public class UserController {
         //userService.deleteDataFromDiaryEntry(id, deleteId, principal.getUserId());
         return;
     }
+
+    /* @GetMapping(path="sort-collection")
+    public ResponseEntity<DiaryEntry> getUserSortedCollection(@RequestBody String sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
+        return new ResponseEntity<DiaryEntry>(userService.getUserSortedCollection(sortCriteria, principal.getUserId()), HttpStatus.OK);
+    } */
 }
