@@ -80,4 +80,9 @@ public class UserController {
     public ResponseEntity<DiaryEntry> getUserSortedCollection(@RequestBody String sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
         return new ResponseEntity<DiaryEntry>(userService.getUserSortedCollection(sortCriteria, principal.getUserId()), HttpStatus.OK);
     } */
+
+    /* @GetMapping(path="sort-diary")
+    public ResponseEntity<DiaryEntry> getUserSortedDiary(@RequestBody String sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
+        return new ResponseEntity<DiaryEntry>(userService.getUserSortedDiary(sortCriteria, principal.getUserId()), HttpStatus.OK);
+    } */
 }
