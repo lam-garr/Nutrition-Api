@@ -77,12 +77,18 @@ public class UserController {
     }
 
     /* @GetMapping(path="sort-collection")
-    public ResponseEntity<DiaryEntry> getUserSortedCollection(@RequestBody String sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
-        return new ResponseEntity<DiaryEntry>(userService.getUserSortedCollection(sortCriteria, principal.getUserId()), HttpStatus.OK);
+    public ResponseEntity<List<DiaryEntry>> getUserSortedCollection(@RequestBody String sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
+        return new ResponseEntity<List<DiaryEntry>>(userService.getUserSortedCollection(sortCriteria, principal.getUserId()), HttpStatus.OK);
     } */
 
     /* @GetMapping(path="sort-diary")
     public ResponseEntity<DiaryEntry> getUserSortedDiary(@RequestBody String sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
         return new ResponseEntity<DiaryEntry>(userService.getUserSortedDiary(sortCriteria, principal.getUserId()), HttpStatus.OK);
     } */
+
+    @PostMapping(path="edit-diary-date")
+    public void editDiaryDate(@RequestBody String month, @RequestBody String day, @RequestBody String diaryId, @AuthenticationPrincipal UserPrincipal principal) {
+        //userService.editDiaryDate(month, day, diaryId, principal.getUserId());
+        return;
+    }
 }
