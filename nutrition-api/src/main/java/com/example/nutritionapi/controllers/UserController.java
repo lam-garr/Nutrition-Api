@@ -91,4 +91,9 @@ public class UserController {
         //userService.editDiaryDate(month, day, diaryId, principal.getUserId());
         return;
     }
+
+    /* @PostMapping(path="/get-nutr-info")
+    public Object getNutritionInfo(@RequestBody String item, @AuthenticationPrincipal UserPrincipal principal) {
+        return userService.getNutritionInfo(item, principal.getUserId());
+    } */
 }
