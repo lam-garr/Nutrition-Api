@@ -36,6 +36,12 @@ public class UserController {
         return principal.getUsername();
     }
 
+    /* @PostMapping(path="/sign-up")
+    public void addUser(@RequestBody Object newUserInfo) {
+        userService.addUser(newUserInfo.getUsername(), newUserInfo.getPassword());
+        return;
+    } */
+
     @GetMapping(path="/delete-user")
     public void deleteUser(){
         userService.deleteUser("");
