@@ -23,5 +23,5 @@ public class User {
     private String firstName;
     private String lastName;
     private String token;
-    private List<NutritionInfo> myData;
+    private List<DiaryEntry> myData;
 }

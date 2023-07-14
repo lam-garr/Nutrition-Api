@@ -49,8 +49,8 @@ public class UserController {
     }
 
     @GetMapping(path="get-entries")
-    public ResponseEntity<List<NutritionInfo>> getUserDiaryEntries(@AuthenticationPrincipal UserPrincipal principal) {
-        return new ResponseEntity<List<NutritionInfo>>(userService.getUserDiaryEntries(principal.getUserId()), HttpStatus.OK);
+    public ResponseEntity<List<DiaryEntry>> getUserDiaryEntries(@AuthenticationPrincipal UserPrincipal principal) {
+        return new ResponseEntity<List<DiaryEntry>>(userService.getUserDiaryEntries(principal.getUserId()), HttpStatus.OK);
     }
 
     /* @GetMapping(path="get-entry")

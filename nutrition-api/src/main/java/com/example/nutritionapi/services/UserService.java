@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.nutritionapi.entity.UserEntity;
+import com.example.nutritionapi.models.DiaryEntry;
 import com.example.nutritionapi.models.NutritionInfo;
 import com.example.nutritionapi.models.User;
 import com.example.nutritionapi.repository.UserRepository;
@@ -41,7 +42,7 @@ public class UserService {
         userRepository.deleteByUsername(usernameToDelete);
     }
 
-    public List<NutritionInfo> getUserDiaryEntries(int id) {
+    public List<DiaryEntry> getUserDiaryEntries(int id) {
         final Query query = new Query();
         query.addCriteria(Criteria.where("id").is(id));
         final User theUser = mongoTemplate.findOne(query, User.class);
