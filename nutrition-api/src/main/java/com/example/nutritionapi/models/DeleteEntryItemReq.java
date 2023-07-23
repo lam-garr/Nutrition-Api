@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DeleteDiaryReq {
-    private String deleteDiaryId;
+public class DeleteEntryItemReq {
+    private int deleteEntryItemId;
 }
