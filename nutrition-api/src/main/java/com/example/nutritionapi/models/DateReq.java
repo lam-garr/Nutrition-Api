@@ -9,4 +9,5 @@ public class DateReq {
     private String month;
     private int day;
     private int year;
+    private String diaryId;
 }

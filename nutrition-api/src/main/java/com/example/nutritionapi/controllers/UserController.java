@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.nutritionapi.models.DateReq;
 import com.example.nutritionapi.models.DiaryEntry;
 import com.example.nutritionapi.models.NutritionInfo;
 import com.example.nutritionapi.models.User;
@@ -93,8 +94,8 @@ public class UserController {
     } */
 
     @PostMapping(path="edit-diary-date")
-    public void editDiaryDate(@RequestBody String month, @RequestBody String day, @RequestBody String diaryId, @AuthenticationPrincipal UserPrincipal principal) {
-        //userService.editDiaryDate(month, day, diaryId, principal.getUserId());
+    public void editDiaryDate(@RequestBody DateReq dateReq, @AuthenticationPrincipal UserPrincipal principal) {
+        //userService.editDiaryDate(dateReq.getMonth(), dateReq.getDay(), dateReq.getYear(), dateReq.getDiaryId(), principal.getUserId());
         return;
     }
 
