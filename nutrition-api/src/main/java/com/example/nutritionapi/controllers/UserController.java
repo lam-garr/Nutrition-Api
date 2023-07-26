@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.nutritionapi.models.DateReq;
+import com.example.nutritionapi.models.DeleteDiaryReq;
+import com.example.nutritionapi.models.DeleteEntryItemReq;
 import com.example.nutritionapi.models.DiaryEntry;
 import com.example.nutritionapi.models.NutritionInfo;
 import com.example.nutritionapi.models.User;
@@ -44,8 +46,8 @@ public class UserController {
     } */
 
     @GetMapping(path="/delete-user")
-    public void deleteUser(){
-        userService.deleteUser("");
+    public void deleteUser(@AuthenticationPrincipal UserPrincipal principal){
+        userService.deleteUser(principal.getUsername());
         return;
     }
 
@@ -60,8 +62,8 @@ public class UserController {
     } */
 
     @PostMapping(path="delete-entry")
-    public void deleteSingleEntryFromCollection(@RequestBody String deckIdToDelete, @AuthenticationPrincipal UserPrincipal principal) {
-        //userService.deleteSingleEntryFromCollection(deckIdToDelete);
+    public void deleteSingleEntryFromCollection(@RequestBody DeleteDiaryReq deckIdToDelete, @AuthenticationPrincipal UserPrincipal principal) {
+        //userService.deleteSingleEntryFromCollection(deckIdToDelete.getDeleteDiaryId());
         return;
     }
 
