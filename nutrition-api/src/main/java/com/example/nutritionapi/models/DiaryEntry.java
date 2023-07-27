@@ -9,9 +9,20 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class DiaryEntry {
+public class DiaryEntry implements Comparable<DiaryEntry> {
     private String id;
     private String day;
     private int calories;
     private List<NutritionInfo> diary;
+
+    @Override
+    public int compareTo(DiaryEntry diaryEntry) {
+        if(this.calories == diaryEntry.getCalories()) {
+            return 0;
+        } else if(this.calories > diaryEntry.getCalories()) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
 }
