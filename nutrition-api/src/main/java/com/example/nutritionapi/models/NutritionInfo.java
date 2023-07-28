@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class NutritionInfo {
+public class NutritionInfo implements Comparable<NutritionInfo>{
     private int id;
     private String name;
     private Nutrient ENERC_KCAL;
@@ -45,5 +45,14 @@ public class NutritionInfo {
     private Nutrient VITK1;
     private Nutrient WATER;
 
-    
+    @Override
+    public int compareTo(NutritionInfo nutritionInfo) {
+        if(this.ENERC_KCAL.getQuantity() == nutritionInfo.getENERC_KCAL().getQuantity()) {
+            return 0;
+        } else if(this.ENERC_KCAL.getQuantity() > nutritionInfo.getENERC_KCAL().getQuantity()) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
 }
