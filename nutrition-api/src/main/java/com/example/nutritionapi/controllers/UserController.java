@@ -17,6 +17,7 @@ import com.example.nutritionapi.models.DateReq;
 import com.example.nutritionapi.models.DeleteDiaryReq;
 import com.example.nutritionapi.models.DeleteEntryItemReq;
 import com.example.nutritionapi.models.DiaryEntry;
+import com.example.nutritionapi.models.NutrInfoReq;
 import com.example.nutritionapi.models.NutritionInfo;
 import com.example.nutritionapi.models.User;
 import com.example.nutritionapi.security.UserPrincipal;
@@ -102,7 +103,7 @@ public class UserController {
     }
 
     /* @PostMapping(path="/get-nutr-info")
-    public Object getNutritionInfo(@RequestBody String item, @AuthenticationPrincipal UserPrincipal principal) {
-        return userService.getNutritionInfo(item, principal.getUserId());
+    public Object getNutritionInfo(@RequestBody NutrInfoReq item, @AuthenticationPrincipal UserPrincipal principal) {
+        return userService.getNutritionInfo(item.getItem(), principal.getUserId());
     } */
 }
