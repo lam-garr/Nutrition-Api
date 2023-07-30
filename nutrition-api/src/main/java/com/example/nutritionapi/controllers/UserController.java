@@ -19,6 +19,7 @@ import com.example.nutritionapi.models.DeleteEntryItemReq;
 import com.example.nutritionapi.models.DiaryEntry;
 import com.example.nutritionapi.models.NutrInfoReq;
 import com.example.nutritionapi.models.NutritionInfo;
+import com.example.nutritionapi.models.SortCriteriaReq;
 import com.example.nutritionapi.models.User;
 import com.example.nutritionapi.security.UserPrincipal;
 import com.example.nutritionapi.services.UserService;
@@ -87,8 +88,8 @@ public class UserController {
     }
 
     /* @GetMapping(path="sort-collection")
-    public ResponseEntity<List<DiaryEntry>> getUserSortedCollection(@RequestBody String sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
-        return new ResponseEntity<List<DiaryEntry>>(userService.getUserSortedCollection(sortCriteria, principal.getUserId()), HttpStatus.OK);
+    public ResponseEntity<List<DiaryEntry>> getUserSortedCollection(@RequestBody SortCriteriaReq sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
+        return new ResponseEntity<List<DiaryEntry>>(userService.getUserSortedCollection(sortCriteria.getSortCriteriaOne(), principal.getUserId()), HttpStatus.OK);
     } */
 
     /* @GetMapping(path="sort-diary")
