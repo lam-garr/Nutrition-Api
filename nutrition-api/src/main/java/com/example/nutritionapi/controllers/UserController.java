@@ -93,8 +93,8 @@ public class UserController {
     } */
 
     /* @GetMapping(path="sort-diary")
-    public ResponseEntity<DiaryEntry> getUserSortedDiary(@RequestBody String sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
-        return new ResponseEntity<DiaryEntry>(userService.getUserSortedDiary(sortCriteria, principal.getUserId()), HttpStatus.OK);
+    public ResponseEntity<DiaryEntry> getUserSortedDiary(@RequestBody SortCriteriaReq sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
+        return new ResponseEntity<DiaryEntry>(userService.getUserSortedDiary(sortCriteria.getSortCriteriaTwo(), principal.getUserId()), HttpStatus.OK);
     } */
 
     @PostMapping(path="edit-diary-date")
