@@ -6,5 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DeleteEntryItemReq {
+    private int diaryId;
     private int deleteEntryItemId;
 }
