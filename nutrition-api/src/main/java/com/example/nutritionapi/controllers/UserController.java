@@ -20,6 +20,7 @@ import com.example.nutritionapi.models.DeleteEntryItemReq;
 import com.example.nutritionapi.models.DiaryEntry;
 import com.example.nutritionapi.models.NutrInfoReq;
 import com.example.nutritionapi.models.NutritionInfo;
+import com.example.nutritionapi.models.SignupReq;
 import com.example.nutritionapi.models.SortCriteriaReq;
 import com.example.nutritionapi.models.User;
 import com.example.nutritionapi.security.UserPrincipal;
@@ -42,11 +43,11 @@ public class UserController {
         return principal.getUsername();
     }
 
-    /* @PostMapping(path="/sign-up")
-    public void addUser(@RequestBody Object newUserInfo) {
-        userService.addUser(newUserInfo.getUsername(), newUserInfo.getPassword());
+    @PostMapping(path="/sign-up")
+    public void addUser(@RequestBody SignupReq newUserInfo) {
+        //userService.addUser(newUserInfo.getUsername(), newUserInfo.getPassword());
         return;
-    } */
+    }
 
     @GetMapping(path="/delete-user")
     public void deleteUser(@AuthenticationPrincipal UserPrincipal principal){
