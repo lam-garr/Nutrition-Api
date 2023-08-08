@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.nutritionapi.models.AddEntryReq;
 import com.example.nutritionapi.models.AddItemReq;
 import com.example.nutritionapi.models.DateReq;
 import com.example.nutritionapi.models.DeleteDiaryReq;
@@ -78,8 +79,8 @@ public class UserController {
     }
 
     @PostMapping(path="add-entry")
-    public void addDiaryEntryToCollection(@RequestBody Object data, @AuthenticationPrincipal UserPrincipal principal) {
-        //userService.addDiaryEntryToCollection(data, principal.getUserId());
+    public void addDiaryEntryToCollection(@RequestBody AddEntryReq data, @AuthenticationPrincipal UserPrincipal principal) {
+        //userService.addDiaryEntryToCollection(data.getId(), data.getDay(), principal.getUserId());
         return;
     }
 
