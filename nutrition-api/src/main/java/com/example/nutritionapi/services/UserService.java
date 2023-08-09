@@ -1,7 +1,9 @@
 package com.example.nutritionapi.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -48,5 +50,17 @@ public class UserService {
         final User theUser = mongoTemplate.findOne(query, User.class);
 
         return theUser.getMyData();
+    }
+
+    public void addUser(String username, String password) {
+        List<DiaryEntry> myData = new ArrayList<>();
+        userRepository.save(new User(UUID.randomUUID().toString(),
+            username,
+            new BCryptPasswordEncoder().encode(password),
+            "First name",
+            "Last Name",
+            "token",
+            myData));
+        return;
     }
 }

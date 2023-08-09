@@ -46,7 +46,7 @@ public class UserController {
 
     @PostMapping(path="/sign-up")
     public void addUser(@RequestBody SignupReq newUserInfo) {
-        //userService.addUser(newUserInfo.getUsername(), newUserInfo.getPassword());
+        userService.addUser(newUserInfo.getUsername(), newUserInfo.getPassword());
         return;
     }
 
