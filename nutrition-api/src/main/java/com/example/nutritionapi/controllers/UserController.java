@@ -90,10 +90,10 @@ public class UserController {
         return;
     }
 
-    /* @GetMapping(path="sort-collection")
+    @GetMapping(path="sort-collection")
     public ResponseEntity<List<DiaryEntry>> getUserSortedCollection(@RequestBody SortCriteriaReq sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {
         return new ResponseEntity<List<DiaryEntry>>(userService.getUserSortedCollection(sortCriteria.getSortCriteriaOne(), principal.getUserId()), HttpStatus.OK);
-    } */
+    }
 
     /* @GetMapping(path="sort-diary")
     public ResponseEntity<DiaryEntry> getUserSortedDiary(@RequestBody SortCriteriaReq sortCriteria, @AuthenticationPrincipal UserPrincipal principal) {

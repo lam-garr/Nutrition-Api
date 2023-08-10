@@ -1,6 +1,7 @@
 package com.example.nutritionapi.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -62,5 +63,21 @@ public class UserService {
             "token",
             myData));
         return;
+    }
+
+    public List<DiaryEntry> getUserSortedCollection(String sortCriteria, int id) {
+        final Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        final User theUser = mongoTemplate.findOne(query, User.class);
+
+        List<DiaryEntry> sortedList = theUser.getMyData();
+        
+        if(sortCriteria == "low-high"){
+            Collections.sort(sortedList, (i1,i2) -> i1.getCalories() - i2.getCalories());
+            return sortedList;
+        }else {
+            Collections.sort(sortedList, (i1,i2) -> i2.getCalories() - i1.getCalories());
+            return sortedList;
+        }
     }
 }
