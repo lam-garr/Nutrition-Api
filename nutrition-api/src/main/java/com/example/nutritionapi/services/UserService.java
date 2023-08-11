@@ -80,4 +80,8 @@ public class UserService {
             return sortedList;
         }
     }
+
+    public void editDiaryDate(String month, int day, int year, String diaryId, int id) {
+        return;
+    }
 }

@@ -102,7 +102,7 @@ public class UserController {
 
     @PostMapping(path="edit-diary-date")
     public void editDiaryDate(@RequestBody DateReq dateReq, @AuthenticationPrincipal UserPrincipal principal) {
-        //userService.editDiaryDate(dateReq.getMonth(), dateReq.getDay(), dateReq.getYear(), dateReq.getDiaryId(), principal.getUserId());
+        userService.editDiaryDate(dateReq.getMonth(), dateReq.getDay(), dateReq.getYear(), dateReq.getDiaryId(), principal.getUserId());
         return;
     }
 
