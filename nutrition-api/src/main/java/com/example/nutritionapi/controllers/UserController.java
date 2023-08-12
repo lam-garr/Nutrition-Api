@@ -107,7 +107,7 @@ public class UserController {
     }
 
     /* @PostMapping(path="/get-nutr-info")
-    public Object getNutritionInfo(@RequestBody NutrInfoReq item, @AuthenticationPrincipal UserPrincipal principal) {
+    public NutritionInfo getNutritionInfo(@RequestBody NutrInfoReq item, @AuthenticationPrincipal UserPrincipal principal) {
         return userService.getNutritionInfo(item.getItem(), principal.getUserId());
     } */
 }
