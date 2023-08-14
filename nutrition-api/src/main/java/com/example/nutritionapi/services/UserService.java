@@ -84,4 +84,8 @@ public class UserService {
     public void editDiaryDate(String month, int day, int year, String diaryId, int id) {
         return;
     }
+
+    public void deleteSingleEntryFromCollection(String diaryId, int id) {
+        return;
+    }
 }

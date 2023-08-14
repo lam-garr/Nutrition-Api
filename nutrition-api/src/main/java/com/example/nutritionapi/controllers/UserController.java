@@ -68,7 +68,7 @@ public class UserController {
 
     @PostMapping(path="delete-entry")
     public void deleteSingleEntryFromCollection(@RequestBody DeleteDiaryReq deckIdToDelete, @AuthenticationPrincipal UserPrincipal principal) {
-        //userService.deleteSingleEntryFromCollection(deckIdToDelete.getDeleteDiaryId(), principal.getUserId());
+        userService.deleteSingleEntryFromCollection(deckIdToDelete.getDeleteDiaryId(), principal.getUserId());
         return;
     }
 
