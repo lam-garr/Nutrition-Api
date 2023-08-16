@@ -94,4 +94,11 @@ public class UserService {
     public void deleteSingleEntryFromCollection(String diaryId, int id) {
         return;
     }
+
+    /* public DiaryEntry getUserDiaryEntry(String diaryId, int id) {
+        final Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        final User theUser = mongoTemplate.findOne(query, User.class);
+        return;
+    } */
 }
