@@ -8,4 +8,5 @@ import lombok.Setter;
 public class SortCriteriaReq {
     private String sortCriteriaOne;
     private String sortCriteriaTwo;
+    private String sortingId;
 }
