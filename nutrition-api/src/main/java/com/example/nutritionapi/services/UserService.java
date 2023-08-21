@@ -85,6 +85,19 @@ public class UserService {
         final Query query = new Query();
         query.addCriteria(Criteria.where("id").is(id));
         final User theUser = mongoTemplate.findOne(query, User.class);
+
+        DiaryEntry diaryEntry = theUser.getMyData().stream()
+            .filter(d -> d.getId().equals(diaryId))
+            .findFirst()
+            .orElse(null);
+
+        if(sortCriteria == "low-high"){
+            Collections.sort(diaryEntry, (i1,i2) -> i1.getCalories() - i2.getCalories());
+            return diaryEntry;
+        }else {
+            Collections.sort(diaryEntry, (i1,i2) -> i2.getCalories() - i1.getCalories());
+            return diaryEntry;
+        }
     } */
 
     public void editDiaryDate(String month, int day, int year, String diaryId, int id) {
