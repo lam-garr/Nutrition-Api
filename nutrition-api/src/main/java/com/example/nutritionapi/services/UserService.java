@@ -101,6 +101,19 @@ public class UserService {
     } */
 
     public void editDiaryDate(String month, int day, int year, String diaryId, int id) {
+        final Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        final User theUser = mongoTemplate.findOne(query, User.class);
+
+        DiaryEntry diaryEntry = theUser.getMyData().stream()
+            .filter(d -> d.getId().equals(diaryId))
+            .findFirst()
+            .orElse(null);
+
+        String newDay = Integer.toString(day);
+        String newYear = Integer.toString(year);
+        diaryEntry.setDay(month + "/" + newDay + "/" + newYear);
+        
         return;
     }
 
