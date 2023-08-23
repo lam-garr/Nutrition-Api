@@ -121,6 +121,14 @@ public class UserService {
         return;
     }
 
+    /* public void deleteFromEntry(String diaryId, int id) {
+        final Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        final User theUser = mongoTemplate.findOne(query, User.class);
+
+        return;
+    } */
+
     public DiaryEntry getUserDiaryEntry(String diaryId, int id) {
         final Query query = new Query();
         query.addCriteria(Criteria.where("id").is(id));
