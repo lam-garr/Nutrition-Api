@@ -81,7 +81,7 @@ public class UserService {
         }
     }
 
-    /* public DiaryEntry getUserSortedDiary(String sortCriteria, int id) {
+    public List<NutritionInfo> getUserSortedDiary(String sortCriteria, String diaryId, int id) {
         final Query query = new Query();
         query.addCriteria(Criteria.where("id").is(id));
         final User theUser = mongoTemplate.findOne(query, User.class);
@@ -91,14 +91,16 @@ public class UserService {
             .findFirst()
             .orElse(null);
 
+        List<NutritionInfo> diary = diaryEntry.getDiary();
+
         if(sortCriteria == "low-high"){
-            Collections.sort(diaryEntry, (i1,i2) -> i1.getCalories() - i2.getCalories());
-            return diaryEntry;
+            Collections.sort(diary, (i1,i2) -> i1.getENERC_KCAL().getQuantity() - i2.getENERC_KCAL().getQuantity());
+            return diary;
         }else {
-            Collections.sort(diaryEntry, (i1,i2) -> i2.getCalories() - i1.getCalories());
-            return diaryEntry;
+            Collections.sort(diary, (i1,i2) -> i2.getENERC_KCAL().getQuantity() - i1.getENERC_KCAL().getQuantity());
+            return diary;
         }
-    } */
+    }
 
     public void editDiaryDate(String month, int day, int year, String diaryId, int id) {
         final Query query = new Query();
@@ -125,7 +127,7 @@ public class UserService {
         final Query query = new Query();
         query.addCriteria(Criteria.where("id").is(id));
         final User theUser = mongoTemplate.findOne(query, User.class);
-
+        
         return;
     } */
 
