@@ -143,4 +143,8 @@ public class UserService {
 
         return diaryEntry;
     }
+
+    /* public NutritionInfo getNutritionInfo(String item, int id) {
+        return;
+    } */
 }
