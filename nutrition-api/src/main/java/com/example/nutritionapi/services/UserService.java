@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -120,6 +121,20 @@ public class UserService {
     }
 
     public void deleteSingleEntryFromCollection(String diaryId, int id) {
+        final Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        final User theUser = mongoTemplate.findOne(query, User.class);
+
+        String deleteId = "something from params";
+
+        List<DiaryEntry> diaryEntries = theUser.getMyData().stream()
+            .filter(d -> !d.getId().contains(deleteId))
+            .collect(Collectors.toCollection(ArrayList::new));
+
+        Query secondQuery = new Query();
+        secondQuery.addCriteria(Criteria.where("id").is(id).and("myData")
+            .elemMatch(Criteria.where("id").is(diaryId)));
+            
         return;
     }
 
