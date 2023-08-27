@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ import com.example.nutritionapi.models.DiaryEntry;
 import com.example.nutritionapi.models.NutritionInfo;
 import com.example.nutritionapi.models.User;
 import com.example.nutritionapi.repository.UserRepository;
+import com.mongodb.BasicDBObject;
 
 @Service
 public class UserService {
@@ -121,7 +123,7 @@ public class UserService {
     }
 
     public void deleteSingleEntryFromCollection(String diaryId, int id) {
-        final Query query = new Query();
+        /* final Query query = new Query();
         query.addCriteria(Criteria.where("id").is(id));
         final User theUser = mongoTemplate.findOne(query, User.class);
 
@@ -134,7 +136,13 @@ public class UserService {
         Query secondQuery = new Query();
         secondQuery.addCriteria(Criteria.where("id").is(id).and("myData")
             .elemMatch(Criteria.where("id").is(diaryId)));
-            
+         */
+        
+         mongoTemplate.updateFirst(
+             Query.query(Criteria.where("id").is(String.valueOf(id))),
+             new Update().pull("myData", new BasicDBObject("id", diaryId)),
+             User.class);
+
         return;
     }
 
