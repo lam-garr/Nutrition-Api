@@ -146,11 +146,21 @@ public class UserService {
         return;
     }
 
-    /* public void deleteFromEntry(String diaryId, int id) {
+    /* public void deleteFromEntry(String diaryId, String itemId, int id) {
         final Query query = new Query();
         query.addCriteria(Criteria.where("id").is(id));
         final User theUser = mongoTemplate.findOne(query, User.class);
-        
+
+        String deleteId = itemId;
+
+        List<DiaryEntry> diaryEntries = theUser.getMyData().stream()
+            .filter(d -> !d.getId().contains(itemId))
+            .collect(Collectors.toCollection(ArrayList::new));
+
+        Query secondQuery = new Query();
+        secondQuery.addCriteria(Criteria.where("id").is(id).and("myData")
+            .elemMatch(Criteria.where("id").is(diaryId)));
+
         return;
     } */
 
