@@ -106,6 +106,11 @@ public class UserController {
         return;
     }
 
+    @PostMapping(path="edit-entry")
+    public void editDiaryEntry(@AuthenticationPrincipal UserPrincipal principal) {
+        return;
+    }
+
     /* @PostMapping(path="/get-nutr-info")
     public NutritionInfo getNutritionInfo(@RequestBody NutrInfoReq item, @AuthenticationPrincipal UserPrincipal principal) {
         return userService.getNutritionInfo(item.getItem(), principal.getUserId());

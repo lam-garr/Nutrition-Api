@@ -160,7 +160,7 @@ public class UserService {
         Query secondQuery = new Query();
         secondQuery.addCriteria(Criteria.where("id").is(id).and("myData")
             .elemMatch(Criteria.where("id").is(diaryId)));
-
+z
         return;
     } */
 
